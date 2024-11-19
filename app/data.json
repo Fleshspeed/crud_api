@@ -1,19 +1,7 @@
 [
     {
-        "id": 1,
-        "first_name": "John",
-        "last_name": "Doe",
-        "email": "john_doe@example.com",
-        "gender": "male",
-        "roles": "admin viewer manager"
-    },
-    {
-        "id": 2,
-        "first_name": "Donald",
-        "last_name": "Miller",
-        "email": "donald@example.com",
-        "password": "123",
-        "gender": "male",
-        "roles": "viewer"
+        "name": "asas123",
+        "description": "123asas",
+        "id": 1
     }
 ]

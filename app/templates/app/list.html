@@ -4,20 +4,120 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+h1 a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+
+.user-list {
+    list-style: none;
+    padding: 0;
+}
+
+.user-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.user-item:last-child {
+    border-bottom: none;
+}
+
+
+.user-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.user-description {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Кнопки */
+.actions {
+    margin-top: 10px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-right: 10px;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.btn-create {
+    background-color: #28a745;
+}
+
+.btn-edit {
+    background-color: #007bff;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+}
+
+.btn-api {
+    display: block;
+    text-align: center;
+    margin: 20px auto;
+    background-color: #17a2b8;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+    </style>
 </head>
 <body>
-    <h1><a href="{% url 'create' %}">Создать пользователя</a></h1>
-    <ul>
-        {% for item in items %}
-            <li><p>{{ item.name }}</p></li>
-            <li><p>{{ item.description }}</p></li>
-
-            <li>
-                
-                <button><a href="{% url 'update' item.pk %}">Edit</a></button>
-                <button><a href="{% url 'delete' item.pk %}">Delete</a></button>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <h1><a href="{% url 'create' %}" class="btn btn-create">Создать пользователя</a></h1>
+        <ul class="user-list">
+            {% for item in items %}
+                <li class="user-item">
+                    <p class="user-name">{{ item.name }}</p>
+                    <p class="user-description">{{ item.description }}</p>
+                    <div class="actions">
+                        <a href="{% url 'update' item.pk %}" class="btn btn-edit">Edit</a>
+                        <a href="{% url 'delete' item.pk %}" class="btn btn-delete">Delete</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'user-list' %}">View Employees</a>
+    </div>
 </body>
 </html>
